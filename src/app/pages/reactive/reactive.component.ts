@@ -30,9 +30,13 @@ export class ReactiveComponent implements OnInit {
 
   crearFormulario() {
     this.forma = this.fb.group({
-      nombre  : ['', [ Validators.required, Validators.minLength(5) ] ],
-      apellido: ['',   Validators.required],
-      email: ['', [Validators.required, Validators.email ] ],
+      nombre   : ['', [ Validators.required, Validators.minLength(5) ] ],
+      apellido : ['',   Validators.required],
+      email    : ['', [Validators.required, Validators.email ] ],
+      direccion: this.fb.group({
+        estado   : ['', Validators.required],
+        municipio: ['', Validators.required],
+      })
     });
   }
 
