@@ -12,15 +12,25 @@ export class TemplateComponent implements OnInit {
   usuario = {
     nombre: '',
     apellido: '',
-    correo: ''
+    correo: '',
+    pais: ''
   }
+
+  paises: any[] = [];
 
   constructor( private paisService: PaisService  ) { }
 
   ngOnInit(): void {
     this.paisService.getPaises()
         .subscribe( paises => {
-          console.log(paises);
+          this.paises = paises;
+
+          this.paises.unshift({
+            nombre: ' Seleccione su país ',
+            codigo: ''
+          })
+          
+          console.log( this.paises );
         });
   }
 
