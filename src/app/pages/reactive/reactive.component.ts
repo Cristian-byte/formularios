@@ -27,6 +27,12 @@ export class ReactiveComponent implements OnInit {
   get emailNoValido() {
     return this.forma.get('email').invalid && this.forma.get('email').touched
   }
+  get estadoNoValido() {
+    return this.forma.get('direccion.estado').invalid && this.forma.get('direccion.estado').touched
+  }
+  get municipioNoValido() {
+    return this.forma.get('direccion.municipio').invalid && this.forma.get('direccion.municipio').touched
+  }
 
   crearFormulario() {
     this.forma = this.fb.group({
@@ -46,7 +52,12 @@ export class ReactiveComponent implements OnInit {
     if (this.forma.invalid) {
 
       return Object.values(this.forma.controls).forEach(control => {
+
+        if ( control instanceof FormGroup ) {
+          Object.values( control.controls ).forEach( control => control.markAsTouched() );
+        } else {
         control.markAsTouched();
+        }
       });
     }
   }

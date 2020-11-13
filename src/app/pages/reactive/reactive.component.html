@@ -58,13 +58,15 @@
         <input type="text"
                class="form-control"
                placeholder="Estado"
-               formControlName="estado">
+               formControlName="estado"
+               [class.is-invalid]="estadoNoValido">
       </div>
       <div class="col">
         <input type="text"
                class="form-control"
                placeholder="Municipio"
-               formControlName="municipio">
+               formControlName="municipio"
+               [class.is-invalid]="municipioNoValido">
       </div>
     </div>
   </div>
