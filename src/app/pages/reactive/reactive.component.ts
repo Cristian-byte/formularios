@@ -49,9 +49,7 @@ export class ReactiveComponent implements OnInit {
         estado   : ['', Validators.required],
         municipio: ['', Validators.required],
       }),
-      pasatiempos: this.fb.array([
-        [], [], [], [], [],
-      ])
+      pasatiempos: this.fb.array([])
     });
   }
 
@@ -67,6 +65,14 @@ export class ReactiveComponent implements OnInit {
         municipio: 'Xaloztoc'
       }
     });
+  }
+
+  agregarPasatiempo() {
+    this.pasatiempos.push( this.fb.control( '' ) )
+  }
+
+  borrarPasatiempo(i: number) {
+    this.pasatiempos.removeAt(i);
   }
 
   guardar() {
