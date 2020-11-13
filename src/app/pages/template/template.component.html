@@ -15,10 +15,10 @@
                [ngModel]="usuario.nombre"
                placeholder="Nombre"
                required
-               minlength="5"
+               minlength="4"
                #nombre="ngModel">
         <small *ngIf="nombre.invalid && nombre.touched"
-               class="form-text text-danger">Ingrese Nombre (Minimo 5 letras)</small>
+               class="form-text text-danger">Ingrese Nombre (Minimo 4 letras)</small>
       </div>
     </div>
 
@@ -33,10 +33,10 @@
                [ngModel]="usuario.apellido"
                placeholder="Apellido"
                required
-               minlength="5"
+               minlength="4"
                #apellido="ngModel">
         <small *ngIf="apellido.invalid && apellido.touched"
-               class="form-text text-danger">Ingrese Apellido (Minimo 5 letras)</small>
+               class="form-text text-danger">Ingrese Apellido (Minimo 4 letras)</small>
       </div>
     </div>
 
