@@ -17,6 +17,7 @@ export class ReactiveComponent implements OnInit {
                private validadores: ValidadoresService ) {
     this.crearFormulario();
     this.cargarDataAlFormulario();
+    this.crearListeners();
    }
 
   ngOnInit(): void {
@@ -79,18 +80,26 @@ export class ReactiveComponent implements OnInit {
     });
   }
 
+  crearListeners() {
+    //this.forma.valueChanges.subscribe( valor => {
+    //  console.log(valor);
+    //});
+    //this.forma.statusChanges.subscribe( status => console.log({ status }));
+    this.forma.get('nombre').valueChanges.subscribe( console.log );
+  }
+
   cargarDataAlFormulario() {
 
     //this.forma.setValue({
       this.forma.reset({
       nombre: 'Cristian',
       apellido: 'Sanchez',
-      email: 'cristian@gmail.com',
+      email: 'dasda@gmail.com',
       pass1: '123',
       pass2: '123',
       direccion: {
         estado: 'Tlaxcala',
-        municipio: 'Xaloztoc'
+        municipio: 'Xaloztoc',
       }
     });
   }
