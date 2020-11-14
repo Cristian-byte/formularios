@@ -70,7 +70,7 @@ export class ReactiveComponent implements OnInit {
       }),
       pasatiempos: this.fb.array([])
     },{
-      
+      validators: this.validadores.passwordsIguales('pass1', 'pass2')
     });
   }
 
